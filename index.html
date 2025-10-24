@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrewBean - Log In</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="login-bg">
+  <div class="login-container">
+    <div class="logo-login">
+      <img src="icons/logo.svg" alt="logo" width="70">
+      <div class="logo-login-text">
+        <h1>BrewBean</h1>
+        <h2>Inventory System</h2>
+      </div>
+    </div>
+    <h2>Log In</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" required placeholder="Enter username" />
+
+      <label for="password">Password:</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" required placeholder="••••••••" />
+        <span class="toggle-password" id="togglePassword"><img src="icons/toggle.svg" alt="toggle" width="25"></span>
+      </div>
+
+      <button type="submit" class="btn-primary"><img src="icons/create.svg" alt="log in" width="30">Log In</button>
+    </form>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

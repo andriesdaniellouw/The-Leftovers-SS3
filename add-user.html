@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrewBean - Add User</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="app-layout">
+  <aside class="sidebar">
+    <div class="user-profile">
+      <div class="avatar"> <img src="icons/user.svg" alt="user" width="50"></div>
+      <p>Name of Staff Member</p>
+      <small>Manager</small>
+    </div>
+    <nav>
+      <a href="dashboard.html" class="nav-item">
+        <svg class="icon">
+          <use xlink:href="#icon-dashboard" />
+        </svg> Dashboard
+      </a>
+      <a href="inventory.html" class="nav-item">
+        <svg class="icon">
+          <use xlink:href="#icon-inventory" />
+        </svg> Inventory
+      </a>
+      <a href="analytics.html" class="nav-item">
+        <svg class="icon">
+          <use xlink:href="#icon-analytics" />
+        </svg> Analytics
+      </a>
+      <a href="out-of-stock.html" class="nav-item">
+        <svg class="icon">
+          <use xlink:href="#icon-outofstock" />
+        </svg> Out of Stock
+      </a>
+      <a href="add-stock.html" class="nav-item">
+        <svg class="icon">
+          <use xlink:href="#icon-addstock" />
+        </svg> Add Stock
+      </a>
+      <a href="add-user.html" class="nav-item active">
+        <svg class="icon">
+          <use xlink:href="#icon-adduser" />
+        </svg> Add User
+      </a>
+    </nav>
+    <button class="logout-btn" onclick="logout()"> <img src="icons/logout.svg" alt="logout" width="25"> Log Out</button>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="header">
+      <div class="logo">
+        <img src="icons/logo.svg" alt="logo" width="25">
+        <h1>BrewBean Inventory System</h1>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search" />
+        <svg class="icon" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%);">
+          <use xlink:href="#icon-search" />
+        </svg>
+      </div>
+      <div class="notifications">
+        <svg class="icon"><img src="icons/notification.svg" alt="notification" width="25"></svg>
+        <div class="notification-menu">
+          <div>No new notifications</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <h2 class="title">Add New User</h2>
+
+      <div class="form-container">
+        <div class="avatar-upload">
+          <label for="imageUpload" class="avatar-placeholder" id="imagePreview">
+            <span><img src="icons/image.svg" alt="image"></span>
+          </label>
+          <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+          <button class="upload-btn" type="button" onclick="document.getElementById('imageUpload').click()">
+           <img src="icons/upload.svg" alt="upload" width="25"> Upload Image
+          </button>
+        </div>
+
+        <form class="addForm" id="userForm">
+          <label for="fullName">Full Name:</label>
+          <input type="text" id="fullName" required />
+
+          <label for="username">Username:</label>
+          <input type="text" id="username" required />
+
+          <label for="password">Create Password:</label>
+          <div class="password-wrapper">
+            <input type="password" id="password" required />
+            <span class="toggle-password">👁️</span>
+          </div>
+
+          <label for="confirmPassword">Confirm Password:</label>
+          <div class="password-wrapper">
+            <input type="password" id="confirmPassword" required />
+            <span class="toggle-password">👁️</span>
+          </div>
+
+          <label for="role">Role:</label>
+          <select class="role" id="role" required>
+            <option value="Manager">Manager</option>
+            <option value="Staff">Staff</option>
+          </select>
+
+          <div class="form-actions">
+            <button type="submit" class="create-btn"><img src="icons/create.svg" alt="create" width="30"> Create User</button>
+            <button type="button" class="cancel-btn"><img src="icons/cancel.svg" alt="cancel" width="25"> Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="user-list">
+        <h3>List of Users</h3>
+        <table class="users-table">
+          <thead>
+            <tr>
+              <th class="users-table-user">User</th>
+              <th class="users-table-action">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- SVG Icons -->
+  <svg style="display: none;">
+    <defs>
+      <symbol id="icon-dashboard" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M3,13H11V3H3M13,3V13H21V3M3,21H11V15H3M13,21H21V15H13Z" />
+      </symbol>
+      <symbol id="icon-inventory" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M20,2H4A2,2 0 0,0 2,4V20A2,2 0 0,0 4,22H20A2,2 0 0,0 22,20V4A2,2 0 0,0 20,2M8,17H6V15H8M8,13H6V11H8M8,9H6V7H8M20,17H10V7H20M18,9V11H16V9M18,13V15H16V13Z" />
+      </symbol>
+      <symbol id="icon-analytics" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M22,21H2V3H4V19H22V21Z" />
+        <path fill="currentColor" d="M7,17V15H9V17H7Z" />
+        <path fill="currentColor" d="M11,17V13H13V17H11Z" />
+        <path fill="currentColor" d="M15,17V11H17V17H15Z" />
+      </symbol>
+      <symbol id="icon-outofstock" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" />
+      </symbol>
+      <symbol id="icon-addstock" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+      </symbol>
+      <symbol id="icon-adduser" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+      </symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12,22A2,2 0 0,1 10,20H14A2,2 0 0,1 12,22M18,16V11C18,7.93 16.37,5.36 13.5,4.68V4A1,1 0 0,0 12,3A1,1 0 0,0 11,4V4.68C8.63,5.16 7,7.93 7,11V16L5,18V19H19V18L17,16M12,2A2,2 0 0,1 14,4V4.68C16.37,5.16 18,7.93 18,11V16H6V11C6,7.93 7.63,5.36 10.5,4.68V4A2,2 0 0,1 12,2Z" />
+      </symbol>
+      <symbol id="icon-pos" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,10.59L5.24,13.09C5.09,13.37 5,13.68 5,14A2,2 0 0,0 7,16H19V14H7.42A0.25,0.25 0 0,1 7.17,13.75L8.5,11.25H17A1,1 0 0,0 18,10.26L15.83,6.26C15.5,5.63 14.87,5.26 14.17,5.26H6.59L5,3H1M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

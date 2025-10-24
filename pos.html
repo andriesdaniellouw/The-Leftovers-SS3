@@ -1,0 +1,92 @@
+<!-- pos.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrewBean - POS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="app-layout">
+  <aside class="sidebar">
+    <!-- Same sidebar as other pages -->
+    <div class="user-profile">
+      <div class="avatar"> <img src="icons/user.svg" alt="user" width="50"></div>
+      <p>Name of Staff Member</p>
+      <small>Manager</small>
+    </div>
+    <nav>
+      <a href="dashboard.html" class="nav-item"><svg class="icon">
+          <use xlink:href="#icon-dashboard" />
+        </svg> Dashboard</a>
+      <a href="inventory.html" class="nav-item"><svg class="icon">
+          <use xlink:href="#icon-inventory" />
+        </svg> Inventory</a>
+      <a href="analytics.html" class="nav-item"><svg class="icon">
+          <use xlink:href="#icon-analytics" />
+        </svg> Analytics</a>
+      <a href="out-of-stock.html" class="nav-item"><svg class="icon">
+          <use xlink:href="#icon-outofstock" />
+        </svg> Out of Stock</a>
+      <a href="add-stock.html" class="nav-item"><svg class="icon">
+          <use xlink:href="#icon-addstock" />
+        </svg> Add Stock</a>
+      <a href="add-user.html" class="nav-item"><svg class="icon">
+          <use xlink:href="#icon-adduser" />
+        </svg> Add User</a>
+      <a href="pos.html" class="nav-item active"><svg class="icon">
+          <use xlink:href="#icon-pos" />
+        </svg> POS</a>
+    </nav>
+    <button class="logout-btn" onclick="logout()"> <img src="icons/logout.svg" alt="logout" width="25"> Log Out</button>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="header">
+      <div class="logo">
+        <img src="icons/logo.svg" alt="logo" width="25">
+        <h1>BrewBean POS</h1>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search menu..." />
+        <svg class="icon" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%);">
+          <use xlink:href="#icon-search" />
+        </svg>
+      </div>
+      <div class="notifications">
+        <svg class="icon">
+          <use xlink:href="#icon-bell" />
+        </svg>
+        <div class="notification-menu">
+          <div>No new notifications</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <h2>Point of Sale</h2>
+      <!-- You’ll build your POS UI here -->
+      <div class="menu-grid" id="posMenu">
+        <!-- Populated by JS -->
+      </div>
+      <div class="order-summary">
+        <h3>Current Order</h3>
+        <ul id="orderItems"></ul>
+        <p>Total: $<span id="orderTotal">0.00</span></p>
+        <button class="btn-primary" onclick="checkout()"><img src="icons/create.svg" alt="checkout"
+            width="30">Checkout</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- SVG Icons (include your full set + icon-pos) -->
+  <svg style="display: none;">
+    <!-- ... all your symbols, including #icon-pos ... -->
+  </svg>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
